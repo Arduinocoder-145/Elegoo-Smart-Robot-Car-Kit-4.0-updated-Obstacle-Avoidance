@@ -78,7 +78,7 @@ digitalWrite(RichtL, LOW);
   delay(500);
 
 }if(messen<23&&messen>15){
-    analogWrite(MotoL, 0);
+  analogWrite(MotoL, 0);
   analogWrite(MotoR, 0);
   delay(200);
   digitalWrite(RichtL, LOW);
@@ -86,12 +86,16 @@ digitalWrite(RichtL, LOW);
    analogWrite(MotoL, 60);
    analogWrite(MotoR, 120);
   delay(500);
-  myServo.write(75);
-  delay(200);
-  myServo.write(150);
-  delay(200);
+    for(int drehen=0; drehen<180; drehen+=1){
+
+    myServo.write(drehen);
+    delay(4);
+  }for(int drehen=180; drehen>0; drehen-=1){
+
+    myServo.write(drehen);
+    delay(4);
+  }delay(500);
   myServo.write(90);
-  delay(100);
 }
 
 
